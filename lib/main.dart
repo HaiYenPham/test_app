@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_app/pages/home/home_page.dart';
+import 'package:test_app/pages/home_tab/home_tab_page.dart';
 import 'package:test_app/pages/splash_page.dart';
 import 'package:test_app/service/connectivity_service.dart';
 
@@ -36,6 +37,10 @@ class MyApp extends StatelessWidget {
           },
           onGenerateRoute: (setting) {
             switch (setting.name) {
+              case "/homeTab":
+                {
+                  return page(setting, () => HomeTabPage());
+                }
               case "/home":
                 {
                   return page(setting, () => HomePage());

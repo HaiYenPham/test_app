@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_app/values/app_extension.dart';
+import 'package:test_app/values/app_routes.dart';
 
 import '../../common/custom_text.dart';
 import 'home/home_page.dart';
@@ -19,7 +20,8 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () => Get.offAllNamed("/home"));
+    Timer(const Duration(seconds: 3),
+        () => Get.offAllNamed(AppRoutes.homeTab.routers));
   }
 
   @override
