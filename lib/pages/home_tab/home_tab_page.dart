@@ -22,19 +22,18 @@ class HomeTabPage extends GetView<HomeTabController> {
           () => Stack(
             children: [
               Positioned.fill(
-                child: Container(
-                  color: Colors.red,
-                  child: IndexedStack(
-                    index: controller.currentTab.value,
-                    children: [
-                      HomePage(),
-                      Text('2'),
-                      Text('3'),
-                      Text('4'),
-                    ],
-                  ),
+                child: IndexedStack(
+                  index: controller.currentTab.value,
+                  children: [
+                    HomePage(),
+                    Text('2'),
+                    Text('3'),
+                    Text('4'),
+                  ],
                 ),
               ),
+
+              //tab
               Positioned(
                 bottom: 0,
                 left: 24.w,
@@ -45,6 +44,7 @@ class HomeTabPage extends GetView<HomeTabController> {
                   borderRadius: 50.borderRadius,
                   itemCornerRadius: 24.w,
                   containerHeight: 56.w,
+                  shadowColor: Colors.grey.withOpacity(0.3),
                   curve: Curves.easeIn,
                   itemPadding: 4.leftInset,
                   onItemSelected: (index) => controller.currentTab(index),
