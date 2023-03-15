@@ -6,6 +6,7 @@ import 'package:test_app/common/custom_text.dart';
 import 'package:test_app/common/title_widget.dart';
 import 'package:test_app/pages/home/home_controller.dart';
 import 'package:test_app/pages/home/widget/item_deal.dart';
+import 'package:test_app/pages/home/widget/item_garage.dart';
 import 'package:test_app/values/app_colors.dart';
 import 'package:test_app/values/app_extension.dart';
 
@@ -28,6 +29,7 @@ class HomePage extends GetView<HomeController> {
               searchTop(),
               feature(),
               deals(),
+              garage(),
               100.hB,
             ],
           ),
@@ -219,6 +221,7 @@ class HomePage extends GetView<HomeController> {
                 ],
                 onTap: (index) {},
               ),
+              16.hB,
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 padding: 24.horizontalInset,
@@ -230,6 +233,33 @@ class HomePage extends GetView<HomeController> {
                 ),
               ),
             ],
+          ),
+        )
+      ],
+    );
+  }
+
+  garage() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        TitleWidget(
+          title: 'Garage ở gần bạn',
+          trailingWidget: AppText(
+            'Xem thêm',
+            size: 14.sp,
+            fontWeight: FontWeight.w500,
+            color: AppColors.primaryColor,
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: 24.horizontalInset,
+          child: Row(
+            children: List.generate(
+              5,
+              (index) => const ItemGarageWidget(),
+            ),
           ),
         )
       ],
