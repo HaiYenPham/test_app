@@ -17,5 +17,6 @@ abstract class R {
   static const String icStar = '$imageUrl/ic_star.png';
   static const String icStarActive = '$imageUrl/ic_star_active.png';
   static const String bg1 = '$imageUrl/bg1.png';
-  static const String bg_car = '$imageUrl/bg_car.png';
+  static const String bgCar = '$imageUrl/bg_car.png';
+  static const String icArrDown = '$imageUrl/ic_arrow_down.png';
 }

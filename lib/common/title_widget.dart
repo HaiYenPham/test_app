@@ -20,7 +20,8 @@ class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: padding ?? 16.allInset,
+      padding:
+          padding ?? EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.w),
       child: Row(
         children: [
           if (leadingWidget != null) ...[leadingWidget!, 8.wB],
@@ -29,7 +30,7 @@ class TitleWidget extends StatelessWidget {
                 ? AppText(
                     title,
                     fontWeight: FontWeight.w600,
-                    size: 17.sp,
+                    size: 16.sp,
                     maxline: 1,
                     overflow: TextOverflow.ellipsis,
                   )
