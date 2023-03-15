@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_app/common/app_image.dart';
 import 'package:test_app/common/custom_text.dart';
+import 'package:test_app/common/row_image_widget.dart';
 import 'package:test_app/common/title_widget.dart';
 import 'package:test_app/pages/home/home_controller.dart';
 import 'package:test_app/pages/home/widget/item_deal.dart';
@@ -30,6 +31,7 @@ class HomePage extends GetView<HomeController> {
               feature(),
               deals(),
               garage(),
+              bug(),
               100.hB,
             ],
           ),
@@ -200,12 +202,12 @@ class HomePage extends GetView<HomeController> {
                 isScrollable: true,
                 indicatorColor: AppColors.primaryColor,
                 labelStyle: TextStyle(
-                  fontSize: 15.w,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'sfPro',
                 ),
                 unselectedLabelStyle: TextStyle(
-                  fontSize: 15.w,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'sfPro',
                 ),
@@ -260,6 +262,116 @@ class HomePage extends GetView<HomeController> {
               5,
               (index) => const ItemGarageWidget(),
             ),
+          ),
+        )
+      ],
+    );
+  }
+
+  bug() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const TitleWidget(
+          title: 'Các lỗi thường gặp trên xe',
+        ),
+        DefaultTabController(
+          length: 6,
+          child: Column(
+            children: [
+              TabBar(
+                isScrollable: true,
+                indicatorColor: AppColors.primaryColor,
+                labelStyle: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'sfPro',
+                ),
+                unselectedLabelStyle: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'sfPro',
+                ),
+                labelColor: AppColors.primaryColor,
+                unselectedLabelColor: const Color(0xFF313131),
+                tabs: const [
+                  Tab(text: 'Động cơ'),
+                  Tab(text: 'Điện nội thất'),
+                  Tab(text: 'Thân vỏ'),
+                  Tab(text: 'Gầm'),
+                  Tab(text: 'Mâm và lốp'),
+                  Tab(text: 'Bảng điều khiển'),
+                ],
+                onTap: (index) {},
+              ),
+              16.hB,
+              ...List.generate(
+                5,
+                (index) => Container(
+                  height: 60.w,
+                  margin: EdgeInsets.symmetric(horizontal: 24.w, vertical: 6.w),
+                  decoration: BoxDecoration(
+                    borderRadius: 10.borderRadius,
+                    color: const Color(0xFFF6F6F6),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 0.5,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  padding: 10.verticalInset,
+                  child: Row(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 88 / 53,
+                        child: SizedBox(
+                          height: 53.w,
+                          child: AppImage(
+                            'http://via.placeholder.com/350x150',
+                            radius: 15.w,
+                          ),
+                        ),
+                      ),
+                      16.wB,
+                      Expanded(
+                          child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          AppText(
+                            'Hiện tượng động cơ không nổ',
+                            size: 12.sp,
+                            fontWeight: FontWeight.w700,
+                            maxline: 2,
+                          ),
+                          4.hB,
+                          AppText(
+                            'Dấu hiệu nhận biết lỗi động cơ ô tô - Tiếng động bất thường phát ra từ động cơ · 2. Tiếng nổ máy chập chờn, không ổn định · 3. Đầu xe rung lắc khi di chuyển ·',
+                            size: 10.sp,
+                            fontWeight: FontWeight.w300,
+                            maxline: 2,
+                          ),
+                        ],
+                      )),
+                    ],
+                  ),
+                ),
+              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     shrinkWrap: true,
+              //     physics: NeverScrollableScrollPhysics(),
+              //     itemCount: 5,
+              //     itemBuilder: (context, index) => const RowImageItemWidget(
+              //       title: 'Hiện tượng động cơ không nổ',
+              //       description:
+              //           'Dấu hiệu nhận biết lỗi động cơ ô tô - Tiếng động bất thường phát ra từ động cơ · 2. Tiếng nổ máy chập chờn, không ổn định · 3. Đầu xe rung lắc khi di chuyển ·',
+              //     ),
+              //   ),
+              // ),
+            ],
           ),
         )
       ],
